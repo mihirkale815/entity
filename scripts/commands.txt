@@ -1,0 +1,6 @@
+python extract_chunks.py --input ../../data/mit-movie-1/original/engtrain.bio --output ../../data/mit-movie-1/original/engtrain.json --slot_types ../../data/mit-movie-1/slot_types.json
+python extract_chunks.py --input ../../data/mit-movie-1/original/engtest.bio --output ../../data/mit-movie-1/original/engtest.json --slot_types ../../data/mit-movie-1/slot_types.json
+python extract_chunks.py --input ../../data/mit-movie-1/original/engdev.bio --output ../../data/mit-movie-1/original/engdev.json --slot_types ../../data/mit-movie-1/slot_types.json
+
+
+python create_dev_set.py --train ../../data/mit-movie-1/original/engtrainfull.bio  --new_train ../../data/mit-movie-1/original/engtrain.bio --dev ../../data/mit-movie-1/original/engdev.bio --num_dev_samples 2444
