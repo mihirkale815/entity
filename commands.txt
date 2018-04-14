@@ -1,0 +1,155 @@
+python synthetic_driver.py \
+--data_dir=../data/mit-movie-1/original/ \
+--train_path=engtrain.bio \
+--dev_path=engdev.bio \
+--test_path=engtest.bio \
+--train_output_path=../results/train.res \
+--dev_output_path=../results/dev.res \
+--test_output_path=../results/test.res
+
+
+
+python synthetic_driver.py \
+--data_dir=../data/mit-movie-1/ \
+--train_path=action_train.bio \
+--dev_path=action_dev.bio \
+--test_path=romance_dev.bio \
+--train_output_path=../results/action.action.train.res \
+--dev_output_path=../results/action.action.dev.res \
+--test_output_path=../results/action.romance.dev.res
+
+
+python synthetic_driver.py \
+--data_dir=../data/mit-movie-1/ \
+--train_path=romance_train.bio \
+--dev_path=romance_dev.bio \
+--test_path=action_dev.bio \
+--train_output_path=../results/romance.romance.train.res \
+--dev_output_path=../results/romance.romance.dev.res \
+--test_output_path=../results/romance.action.dev.res
+
+
+
+
+python synthetic_driver.py \
+--data_dir=../data/mit-movie-1/ \
+--train_path=old_train.bio \
+--dev_path=old_dev.bio \
+--test_path=recent_dev.bio \
+--train_output_path=../results/old.old.train.res \
+--dev_output_path=../results/old.old.dev.res \
+--test_output_path=../results/old.recent.dev.res
+
+
+
+python synthetic_driver.py \
+--data_dir=../data/mit-movie-1/ \
+--train_path=recent_train.bio \
+--dev_path=recent_dev.bio \
+--test_path=old_dev.bio \
+--train_output_path=../results/recent.recent.train.res \
+--dev_output_path=../results/recent.recent.dev.res \
+--test_output_path=../results/recent.old.dev.res
+
+
+
+
+python synthetic_driver.py \
+--data_dir=../data/mit-movie-1/ \
+--train_path=bollywood_train.bio \
+--dev_path=bollywood_dev.bio \
+--test_path=us_dev.bio \
+--train_output_path=../results/bollywood.bollywood.train.res \
+--dev_output_path=../results/bollywood.bollywood.dev.res \
+--test_output_path=../results/bollywood.us.dev.res
+
+
+python synthetic_driver.py \
+--data_dir=../data/mit-movie-1/ \
+--train_path=us_train.bio \
+--dev_path=us_dev.bio \
+--test_path=bollywood_dev.bio \
+--train_output_path=../results/us.us.train.res \
+--dev_output_path=../results/us.us.dev.res \
+--test_output_path=../results/us.bollywood.dev.res
+
+
+
+python synthetic_driver.py \
+--data_dir=../data/atis/ \
+--train_path=train.bio \
+--dev_path=dev.bio \
+--test_path=test.bio \
+--train_output_path=../results/atis/train.res \
+--dev_output_path=../results/atis/dev.res \
+--test_output_path=../results/atis/test.res
+
+
+python synthetic_driver.py \
+--data_dir=/volume1/data-structured/conll-2003/ \
+--train_path=train.iob \
+--dev_path=dev.iob \
+--test_path=test.iob \
+--train_output_path=/volume1/data-structured/conll-2003/results/train.res \
+--dev_output_path=/volume1/data-structured/conll-2003/results/dev.res \
+--test_output_path=/volume1/data-structured/conll-2003/results/test.res
+
+
+python synthetic_driver.py \
+--data_dir=/home/ec2-user/projects/toxic/entity/data/other/ \
+--train_path=train.bio \
+--dev_path=restauranttest.bio \
+--test_path=engtest.bio \
+--train_output_path=/home/ec2-user/projects/toxic/train.res \
+--dev_output_path=/home/ec2-user/projects/toxic/dev.res \
+--test_output_path=/home/ec2-user/projects/toxic/test.res
+
+
+
+
+(pytorch_p36) [ec2-user@ip-172-31-91-130 code]$ ../conlleval < ../results/action.action.train.res | grep title
+            title: precision:  91.25%; recall:  94.09%; FB1:  92.65  1851
+(pytorch_p36) [ec2-user@ip-172-31-91-130 code]$ ../conlleval < ../results/action.action.dev.res | grep title
+            title: precision:  56.05%; recall:  60.59%; FB1:  58.23  628
+(pytorch_p36) [ec2-user@ip-172-31-91-130 code]$ ../conlleval < ../results/action.romance.dev.res | grep title
+            title: precision:  58.44%; recall:  63.17%; FB1:  60.71  628
+
+
+(pytorch_p36) [ec2-user@ip-172-31-91-130 code]$ ../conlleval < ../results/romance.romance.train.res | grep title
+            title: precision:  94.75%; recall:  96.43%; FB1:  95.58  1827
+(pytorch_p36) [ec2-user@ip-172-31-91-130 code]$ ../conlleval < ../results/romance.romance.dev.res | grep title
+            title: precision:  60.93%; recall:  60.93%; FB1:  60.93  581
+(pytorch_p36) [ec2-user@ip-172-31-91-130 code]$ ../conlleval < ../results/romance.action.dev.res | grep title
+            title: precision:  61.84%; recall:  66.09%; FB1:  63.89  621
+
+
+(pytorch_p36) [ec2-user@ip-172-31-91-130 code]$ ../conlleval < ../results/old.old.train.res | grep title
+            title: precision:  93.18%; recall:  95.88%; FB1:  94.51  1847
+(pytorch_p36) [ec2-user@ip-172-31-91-130 code]$ ../conlleval < ../results/old.old.dev.res | grep title
+            title: precision:  50.36%; recall:  60.76%; FB1:  55.07  701
+(pytorch_p36) [ec2-user@ip-172-31-91-130 code]$ ../conlleval < ../results/old.recent.dev.res | grep title
+            title: precision:  55.09%; recall:  66.09%; FB1:  60.09  697
+
+
+(pytorch_p36) [ec2-user@ip-172-31-91-130 code]$ ../conlleval < ../results/recent.recent.train.res | grep title
+            title: precision:  89.39%; recall:  91.53%; FB1:  90.45  1838
+(pytorch_p36) [ec2-user@ip-172-31-91-130 code]$ ../conlleval < ../results/recent.recent.dev.res | grep title
+            title: precision:  60.44%; recall:  66.78%; FB1:  63.45  642
+(pytorch_p36) [ec2-user@ip-172-31-91-130 code]$ ../conlleval < ../results/recent.old.dev.res | grep title
+            title: precision:  61.38%; recall:  65.92%; FB1:  63.57  624
+
+
+(pytorch_p36) [ec2-user@ip-172-31-91-130 code]$ ../conlleval < ../results/bollywood.bollywood.train.res | grep title
+            title: precision:  91.55%; recall:  94.76%; FB1:  93.13  1858
+(pytorch_p36) [ec2-user@ip-172-31-91-130 code]$ ../conlleval < ../results/bollywood.bollywood.dev.res | grep title
+            title: precision:  39.41%; recall:  36.83%; FB1:  38.08  543
+(pytorch_p36) [ec2-user@ip-172-31-91-130 code]$ ../conlleval < ../results/bollywood.us.dev.res | grep title
+            title: precision:  64.29%; recall:  60.41%; FB1:  62.29  546
+
+
+(pytorch_p36) [ec2-user@ip-172-31-91-130 code]$ ../conlleval < ../results/us.us.train.res | grep title
+            title: precision:  88.22%; recall:  91.75%; FB1:  89.95  1867
+(pytorch_p36) [ec2-user@ip-172-31-91-130 code]$ ../conlleval < ../results/us.us.dev.res | grep title
+            title: precision:  62.95%; recall:  63.17%; FB1:  63.06  583
+(pytorch_p36) [ec2-user@ip-172-31-91-130 code]$ ../conlleval < ../results/us.bollywood.dev.res | grep title
+            title: precision:  61.07%; recall:  64.54%; FB1:  62.76  614
